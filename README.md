@@ -1,11 +1,11 @@
-## School Project: Inicjalizacja Asynchronicznego Ekosystemu FinTech
+# School Project: Inicjalizacja Asynchronicznego Ekosystemu FinTech
 
 ## 1. Opis:
 - Przygotowanie szkieletu aplikacji (Boilerplate) opartej na FastAPI, która integruje lokalną bazę danych z zewnętrznymi dostawcami usług finansowych i telekomunikacyjnych (Stripe, Airalo) w sposób bezpieczny i asynchroniczny.
 
 ## 2. Zakres działań (setup)
 
-# a) Konfiguracja Serwera i Środowiska
+### a) Konfiguracja Serwera i Środowiska
 - Stworzenie asynchronicznej instancji FastAPI z zdefiniowanymi metadanymi (tytuł, wersja, opis dla OpenAPI).
 - Implementacja zarządzania konfiguracją przy użyciu pydantic-settings (klasa Settings), która wczytuje klucze API z pliku .env.
 - Zmienne wymagane w .env:
@@ -14,13 +14,13 @@
   * AIRALO_API_KEY
   * AIRALO_API_SECRET
 
-# b) Architektura bazy danych
+### b) Architektura bazy danych
 - Konfiguracja asynchronicznego silnika (create_asyc_engine) oraz fabryki sesji (async_sessionmaker).
 - Stworzenie bazowych modeli tabeli:
   * User (id, email, stripe_customer_id)
   * Transaction (id_ user_id, amount, status: *pending/success/failed*)
 
-# c) Integracja z Dostawcami
+### c) Integracja z Dostawcami
 - Stworzenie asynchronicznych klientów (używając biblioteki httpx) do komunikacji z:
   * Stripe Sandbox: Endpoint do tworzenia PaymentIntent
   * Airalo API: Endpoint do pobierania listy dostępnych pakietów eSIM (*sandbox/test*)
