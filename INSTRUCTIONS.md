@@ -65,7 +65,7 @@ Seeded 2 webhook events.
 Done.
 ```
 
-> Skrypt jest idempotentny — bezpieczne wielokrotne uruchomienie.
+> Skrypt jest idempotentny, bezpieczne wielokrotne uruchomienie.
 
 ---
 
@@ -81,7 +81,7 @@ Serwer startuje na `http://localhost:8000`.
 
 ## 5. Punkty kontrolne
 
-### 5.1 Swagger UI — schematy Pydantic
+### 5.1 Swagger UI,  schematy Pydantic
 
 Otwórz w przeglądarce: **http://localhost:8000/docs**
 
@@ -98,7 +98,7 @@ Sprawdź, że widoczne są następujące schematy w sekcji *Schemas*:
 
 ---
 
-### 5.2 Healthcheck — baza danych i Stripe
+### 5.2 Healthcheck: baza danych i Stripe
 
 ```bash
 curl http://localhost:8000/api/v1/health
@@ -120,7 +120,7 @@ Endpoint asynchronicznie sprawdza:
 
 ---
 
-### 5.3 Transakcje — async DB przez Dependency Injection
+### 5.3 Transakcje: async DB przez Dependency Injection
 
 Utwórz transakcję:
 
@@ -138,7 +138,7 @@ curl -s http://localhost:8000/api/v1/transactions | python -m json.tool
 
 ---
 
-### 5.4 Airalo — lista pakietów eSIM (mock)
+### 5.4 Airalo: lista pakietów eSIM (mock)
 
 ```bash
 curl -s http://localhost:8000/api/v1/esims/packages | python -m json.tool
@@ -148,7 +148,7 @@ Oczekiwana odpowiedź: lista 6 pakietów z polami `id`, `name`, `data_limit_gb`,
 
 ---
 
-### 5.5 Stripe — PaymentIntent (mock)
+### 5.5 Stripe: PaymentIntent (mock)
 
 ```bash
 curl -s -X POST http://localhost:8000/api/v1/payments/intent \
