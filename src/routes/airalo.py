@@ -1,4 +1,4 @@
-from fastapi import APIRouter, Depends
+from fastapi import APIRouter, Depends, HTTPException
 from src.models.airalo import AiraloOrderRequest, AiraloOrderResponse, AiraloPackage
 from src.services.airalo_service import get_packages, create_order, get_order_status
 from src.middleware.auth import authenticate
@@ -16,4 +16,7 @@ async def place_order(order: AiraloOrderRequest):
 
 @router.get("/order/{order_id}", response_model=AiraloOrderResponse, dependencies=[Depends(authenticate)])
 async def order_status(order_id: str):
-    return get_order_status(order_id)
+    try:
+        return get_order_status(order_id)
+    except ValueError as e:
+        raise HTTPException(status_code=404, detail=str(e))
